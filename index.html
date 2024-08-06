@@ -6,10 +6,13 @@
   <title>Compliment Game</title>
   <style>
     body {
-      font-family: Arial, sans-serif;
+      background-color: rgb(81, 74, 66);
+      background-size: cover;
+      background-repeat: no-repeat;
+      font-family: 'Georgia', serif;
+      color: #333;
       text-align: center;
-      background-color: #f0f0f0;
-      padding: 40px;
+      overflow-y: scroll; /* Enable vertical scrolling */
     }
 
     h1 {
@@ -57,34 +60,61 @@
       border-radius: 5px;
       text-align: center;
     }
+
+    .warning {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background-color: rgba(255, 0, 0, 0.8);
+      color: white;
+      padding: 10px 20px;
+      border-radius: 5px;
+      z-index: 9999;
+      display: none;
+    }
   </style>
 </head>
 <body onload="showPopup()">
   <div class="popup" id="popup" style="display: none;">
     <div class="popup-content">
-      <h2>You've Been Hacked!</h2>
-      <p>Just kidding, this is a joke. Welcome to the Compliment Game!</p>
+      <h2>GET HACKED LOOLL!!</h2>
+      <p>Just kidding, this is a joke. HAMAD WILL NEVER DO THAT</p>
     </div>
   </div>
 
-  <h1>Compliment Game</h1>
+  <h1>play this game whenever you feel sad <3</h1>
   <div id="compliment"></div>
-  <button onclick="generateCompliment()">Get a Compliment</button>
-  <button onclick="keepScore()">I Agree!</button>
+  <button onclick="generateCompliment()">PRESS MEE FIRST!!(keep pressing me)</button>
+  <button onclick="keepScore()">If you liked it press me pls</button>
   <div id="score">Score: 0</div>
+
+  <!-- Additional content to create a very long scrolling distance -->
+  <div style="height: 5000px;">
+    <p>btw dont you dare scroll down!</p>
+  </div>
+
+  <!-- Warning message -->
+  <div class="warning" id="warning">STOP! Do not scroll down! It's a trap!</div>
+
+  <!-- Add your picture below -->
+   <div><h2>i love you<33,also pls dont click the gif its your last warning <3</h2></div>
+  <a href="https://www.youtube.com/watch?v=xvFZjo5PgG0"><img src="https://media1.tenor.com/m/wWoIbNLogVUAAAAC/lignon-lou.gif" alt="Your Image">
 
   <script>
     const compliments = [
-      "You have a beautiful smile that brightens up my day.",
+      "You a baddie fr.",
       "Your kindness and compassion are truly inspiring.",
-      "Your intelligence and creativity amaze me every day.",
+      "Your intelligence and creativity amaze me.",
       "You are such a warm and caring person. I'm so lucky to have you in my life.",
       "Your determination and hard work are truly admirable.",
-      "You have a heart of gold and always put others first.",
+      "i llloovvee yyoouu my little sister.",
       "Your sense of humor never fails to make me laugh.",
-      "Your passion for life is contagious and motivates me to be my best self.",
-      "You are a true role model, and I aspire to be more like you.",
-      "Your strength and resilience in the face of challenges are so inspiring."
+      "You make even the most boring things fun.",
+      "if you ever feel bad just look at the mirror you will find beauty.",
+      "Your strength and resilience in the face of challenges are so inspiring.",
+      " Don’t tell anyone, but you’re my favorite.",
+      "the chances of this excat one appering is low so... mam may i take part in the activity of grabbing your lower rear and smacking it"
     ];
 
     let score = 0;
@@ -104,8 +134,17 @@
       popup.style.display = "flex";
       setTimeout(() => {
         popup.style.display = "none";
-      }, 2000);
+      }, 6000);
     }
+
+    window.addEventListener('scroll', function() {
+      const warning = document.getElementById('warning');
+      if (window.scrollY > 2000) {
+        warning.style.display = 'block';
+      } else {
+        warning.style.display = 'none';
+      }
+    });
   </script>
 </body>
 </html>
