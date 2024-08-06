@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Compliment Game</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      background-color: #f0f0f0;
+      padding: 40px;
+    }
+
+    h1 {
+      margin-bottom: 30px;
+    }
+
+    #compliment {
+      font-size: 24px;
+      font-weight: bold;
+      margin-bottom: 20px;
+    }
+
+    button {
+      font-size: 16px;
+      padding: 10px 20px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      margin: 10px;
+    }
+
+    #score {
+      font-size: 18px;
+      margin-top: 20px;
+    }
+
+    .popup {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 9999;
+    }
+
+    .popup-content {
+      background-color: white;
+      padding: 20px;
+      border-radius: 5px;
+      text-align: center;
+    }
+  </style>
+</head>
+<body onload="showPopup()">
+  <div class="popup" id="popup" style="display: none;">
+    <div class="popup-content">
+      <h2>You've Been Hacked!</h2>
+      <p>Just kidding, this is a joke. Welcome to the Compliment Game!</p>
+    </div>
+  </div>
+
+  <h1>Compliment Game</h1>
+  <div id="compliment"></div>
+  <button onclick="generateCompliment()">Get a Compliment</button>
+  <button onclick="keepScore()">I Agree!</button>
+  <div id="score">Score: 0</div>
+
+  <script>
+    const compliments = [
+      "You have a beautiful smile that brightens up my day.",
+      "Your kindness and compassion are truly inspiring.",
+      "Your intelligence and creativity amaze me every day.",
+      "You are such a warm and caring person. I'm so lucky to have you in my life.",
+      "Your determination and hard work are truly admirable.",
+      "You have a heart of gold and always put others first.",
+      "Your sense of humor never fails to make me laugh.",
+      "Your passion for life is contagious and motivates me to be my best self.",
+      "You are a true role model, and I aspire to be more like you.",
+      "Your strength and resilience in the face of challenges are so inspiring."
+    ];
+
+    let score = 0;
+
+    function generateCompliment() {
+      const randomIndex = Math.floor(Math.random() * compliments.length);
+      document.getElementById("compliment").textContent = compliments[randomIndex];
+    }
+
+    function keepScore() {
+      score++;
+      document.getElementById("score").textContent = `Score: ${score}`;
+    }
+
+    function showPopup() {
+      const popup = document.getElementById("popup");
+      popup.style.display = "flex";
+      setTimeout(() => {
+        popup.style.display = "none";
+      }, 2000);
+    }
+  </script>
+</body>
+</html>
